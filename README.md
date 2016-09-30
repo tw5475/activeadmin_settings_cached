@@ -27,14 +27,39 @@ Create your settings page:
 
     $ rails g active_admin:settings Settings    
 
-And configure your default values in your Settings model:
+## Default settings
+##if you use rails-settings-cached's gem version < v0.6
+And configure your default values in your Settings model: 
 
 ``` ruby
 class Settings < RailsSettings::CachedSettings
    defaults[:my_awesome_settings] = 'This is my settings'
 end
 ```
+##if you use rails-settings-cached's gem version > v0.6
 
+
+Sometimes you may want define default settings.
+
+RailsSettings has generate a config YAML file in:
+
+```yml
+# config/app.yml
+defaults: &defaults
+  github_token: "123456"
+  twitter_token: "<%= ENV["TWITTER_TOKEN"] %>"
+  foo:
+    bar: "Foo bar"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+```
 In your application's admin interface, there will now be a new page with this setting
 
 ## active_admin_settings_page DSL
