@@ -24,7 +24,8 @@ module ActiveadminSettingsCached
       end
 
       page_action :update, method: :post do
-        settings_params = params.require(:settings).permit(options[:template_object].display.keys)
+        all_field = params.require(:settings).keys
+        settings_params = params.require(:settings).permit(all_field)
 
         coercion.cast_params(settings_params) do |name, value|
           options[:template_object].save(name, value)
