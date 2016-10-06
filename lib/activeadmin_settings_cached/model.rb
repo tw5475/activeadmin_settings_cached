@@ -111,7 +111,8 @@ module ActiveadminSettingsCached
         starting_with: nil,
         key: nil,
         model_name: ::ActiveadminSettingsCached.config.model_name,
-        display: ::ActiveadminSettingsCached.config.display
+        display: ::ActiveadminSettingsCached.config.display,
+        group: ::ActiveadminSettingsCached.config.group_name
       }
     end
 
