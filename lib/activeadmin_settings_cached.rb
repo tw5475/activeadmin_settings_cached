@@ -13,7 +13,7 @@ module ActiveadminSettingsCached
     end
     
     def group_name
-      (@group_name ||= {}).with_indifferent_access
+      @group_name ||= []
     end
   end
 
