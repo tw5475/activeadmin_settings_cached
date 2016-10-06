@@ -48,6 +48,8 @@ RailsSettings has generate a config YAML file in:
 defaults: &defaults
   github_token: "123456"
   twitter_token: "<%= ENV["TWITTER_TOKEN"] %>"
+  web_content__name: 'xxx'
+  for_css__width: 1024
   foo:
     bar: "Foo bar"
 
@@ -93,6 +95,11 @@ en:
   settings:
     attributes:
       my_awesome_settings: 'My Awesome Lolaized Setting'
+      web_content__name: 'xxx'
+      for_css__width: 600
+    group_prefix: 
+      web_content: 'web content settings'
+      for_css: 'About Css'
 ```
 ## Model name
 
@@ -116,6 +123,7 @@ ActiveadminSettingsCached.configure do |config|
     my_awesome_setting_name_2: :timestamp,
     my_awesome_setting_name_3: :select
   }
+  config.group_name = ['web_content', 'for_css']
 end
 ```
 
