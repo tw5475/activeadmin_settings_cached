@@ -27,7 +27,7 @@ module ActiveadminSettingsCached
                    elsif (default_value.is_a?(TrueClass) || default_value.is_a?(FalseClass)) &&
                          display[settings_name].to_s == 'boolean'
                      {
-                       input_html: { checked: value }, label: '', checked_value: 'true', unchecked_value: 'false'
+                       input_html: { checked: value }, label: I18n.t("settings.attributes.#{key_name}", default: key_name), checked_value: 'true', unchecked_value: 'false'
                      }
                    else
                      {
@@ -35,7 +35,7 @@ module ActiveadminSettingsCached
                      }
                    end
 
-      { as: display[settings_name], label: false }
+      { as: display[settings_name], label: I18n.t("settings.attributes.#{key_name}", default: key_name) }
         .merge!(input_opts)
     end
 
