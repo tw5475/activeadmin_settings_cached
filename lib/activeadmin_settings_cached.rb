@@ -2,7 +2,7 @@ require 'activeadmin_settings_cached/engine'
 
 module ActiveadminSettingsCached
   class Configuration
-    attr_accessor :model_name, :display
+    attr_accessor :model_name, :display, :group_name 
 
     def model_name
       (@model_name ||= 'Settings').constantize
@@ -10,6 +10,10 @@ module ActiveadminSettingsCached
 
     def display
       (@display ||= {}).with_indifferent_access
+    end
+    
+    def group_name
+      (@group_name ||= {}).with_indifferent_access
     end
   end
 
